@@ -1,0 +1,34 @@
+file_paths:
+  signals: data/feature/signals_1kb.npy
+  clusters: data/cluster/clusters.csv
+  hic_embedding: data/hic_embedding/hic_line_embedding_128.csv
+
+clustering:
+  method: kmeans  # or hmm
+  n_clusters: 6
+
+data:
+  signal_resolution: 1kb
+  hic_embedding_dim: 128
+  batch_size: 512
+
+model:
+  share_attn: False
+  share_ffn: False
+  dropout: 0.0
+  d_model: 64
+  dim_feedforward: 256  # 64*4
+  num_heads: 8
+  num_layers: 6
+
+optimizer:
+  type: Adam
+  func_lr: 1e-5
+  struc_lr: 1e-5
+  func_head_lr: 1e-5
+  struc_head_lr: 1e-5
+  weight_decay: 0.001
+
+training:
+  max_epochs: 4
+  enable_checkpointing: False
