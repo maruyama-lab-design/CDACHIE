@@ -6,7 +6,7 @@ from sklearn.cluster import KMeans
 from hmmlearn import hmm
 from omegaconf import OmegaConf
 
-from src import data_for_clustering, lightning_model
+from src import data_for_clustering, lightning_model, make_bed
 
 # Load configuration using OmegaConf
 config = OmegaConf.load("config.yaml")
@@ -25,7 +25,7 @@ def main():
         mode='all',
         batch_size=data_cfg.batch_size,
         shuffle=True,
-        scaler=False,
+        scaler=True,
         signal_resolution=data_cfg.signal_resolution
     )
 
@@ -36,7 +36,7 @@ def main():
         mode='all',
         batch_size=data_cfg.batch_size,
         shuffle=False,
-        scaler=False,
+        scaler=True,
         signal_resolution=data_cfg.signal_resolution
     )
 
@@ -95,6 +95,7 @@ def main():
     df = pd.read_csv(file_cfg.clusters)
     df['new_cluster'] = cluster
     df.to_csv(file_cfg.clusters, index=False)
+    #make_bed.csv_to_bed(file_cfg.clusters, file_cfg.output_bed, num_clusters=clustering_cfg.n_clusters)
     print('Done!')
 
 if __name__ == "__main__":

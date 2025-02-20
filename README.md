@@ -22,33 +22,34 @@ We used data from the GM12878 cell line for our experiments.
 The data directory structure is as follows:
 ```
 data
-├── cluster
-│    ├── CDACHIE.bed
-│    └── clusters.csv
-├── feature
-│    ├── GM12878_100000_bins.txt
-│    ├── *.bigwig
-│    └── signals_1kb.npy
-└── hic_embedding
-     └── hic_line_embedding_128.csv
+├── input
+│    ├── epigenomic_feature
+│    │    ├── GM12878_100000_bins.txt
+│    │    ├── *.bigwig
+│    │    └── signals_1kb.npy
+│    └── hic_embedding
+│         └── hic_line_embedding_128.csv
+└── output
+     ├── CDACHIE.bed
+     └── clusters.csv
 ```
+
+### Epigenomic signal data
+First, download the bigwig files (see instructions in `make_feature.ipynb`), then run the notebook to generate `signals_1kb.npy`.
 
 ### Hi-C embedding
 The Hi-C embedding data file (hic_line_embedding_128.csv) was created using the code from: https://github.com/nedashokraneh/IChDA/blob/master/src/dataset_class.py
 
-### Epigenomic signal data
-First, download the epigenomic data bigwig files, then run `make_feature.ipynb` to create the epigenomic signal data file (`signals_1kb.npy`).
-
 ## Contrastive Learning & Clustering
-Set the hyperparameters in `config.yaml`, then run:
+Hyperparameters are specified in `config.yaml`, then run:
 ```bash
-python main.py
+python cdachie.py
 ```
-The annotation results will be saved to `data/cluster/clusters.csv`.
+The annotation results is saved to `data/output/clusters.csv`.
 
 ## Usage
 To use CDACHIE for your own data:
 1. Prepare your Hi-C and epigenomic data in the required format
 2. Modify the configuration in `config.yaml` as needed
-3. Run the main script
-4. The resulting chromatin domain annotations will be available in the output files
+3. Run `cdachie.py`
+4. The output file contains chromatin domain annotation

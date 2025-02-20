@@ -1,7 +1,6 @@
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
-from lion_pytorch import Lion
 import pytorch_lightning as pl
 from pytorch_lightning.callbacks import Callback
 from src.models.BERT import BERT1kb
@@ -15,7 +14,6 @@ class ClusteringModel(pl.LightningModule):
         self.save_hyperparameters()
         if signal_resolution=='1kb':
             self.functional_encoder = BERT1kb(d_model, num_layers, num_heads, dropout, dim_feedforward, input_size=100, output_size=8, share_attn=share_attn, share_ffn=share_ffn, cls_init=cls_init)
-        #self.structural_encoder = MLP(input_size=hic_embedding_dim, output_size=d_model, hidden_size=128, depth=4)
         self.structural_encoder = MLP(d_in=128, d=128, d_hidden_factor=1, n_layers=4, hidden_dropout=dropout, residual_dropout=dropout, d_out=64)
 
         self.functional_head = nn.Linear(d_model, 16)
@@ -46,11 +44,8 @@ class ClusteringModel(pl.LightningModule):
 
         if self.optimizer=='Adam':
             opt = torch.optim.Adam(parameters, weight_decay=self.weight_decay)
-        elif self.optimizer=='Lion':
-            opt = Lion(parameters, weight_decay=self.weight_decay)
-            print('Lion optimizer is used.')
         else:
-            raise ValueError(f'optimizer must be one of Adam or Lion, but got {self.optimizer}')
+            raise ValueError(f'optimizer must be one of Adam, but got {self.optimizer}')
         return opt
 
     def compute_loss(self, func_emb, struc_emb, temperture=0.5):

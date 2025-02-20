@@ -69,12 +69,3 @@ def get_dataloader(feature1kb_file_path, clusters_file_path, hic_embedding_file_
 
 
 
-
-
-
-
-def main():
-    pass
-
-if __name__ == '__main__':
-    main()

@@ -1,7 +1,8 @@
 file_paths:
-  signals: data/feature/signals_1kb.npy
-  clusters: data/cluster/clusters.csv
-  hic_embedding: data/hic_embedding/hic_line_embedding_128.csv
+  signals: data/input/epigenomic_feature/signals_1kb.npy
+  hic_embedding: data/input/hic_embedding/hic_line_embedding_128.csv
+  clusters: data/output/clusters.csv
+  output_bed: data/output/NEW.bed
 
 clustering:
   method: kmeans  # or hmm
