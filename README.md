@@ -3,8 +3,7 @@
 ## Abstract
 This repository contains the code for the paper "CDACHIE: Chromatin Domain Annotation by Integrating Chromatin Interaction and Epigenomic Data with Contrastive Learning."
 
-CDACHIE (Chromatin Domain Annotation using Contrastive Learning for Hi-C and Epigenomic Data) identifies chromatin domains from Hi-C and epigenomic data. First, it generates representative vectors for both data types, aligning vectors corresponding to the same genomic bin. Then, it applies K-means clustering to the concatenated vectors to classify distinct chromatin domain types.
-
+CDACHIE (Chromatin Domain Annotation using Contrastive Learning for Hi-C and Epigenomic Data) is a method for identifying chromatin domains from Hi-C and epigenomic data. Our approach leverages contrastive learning to generate aligned representative vectors for both data types at each genomic bin. The concatenated vectors are then clustered using $K$-means to classify distinct chromatin domain types.
 
 
 ## Installation
