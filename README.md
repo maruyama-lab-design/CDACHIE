@@ -10,7 +10,7 @@ CDACHIE (Chromatin Domain Annotation using Contrastive Learning for Hi-C and Epi
 ## Installation
 1. Clone the repository
 ```bash
-git clone --
+git clone https://github.com/maruyama-lab-design/CDACHIE.git
 ```
 2. Install the required packages in the environment
 ```bash
