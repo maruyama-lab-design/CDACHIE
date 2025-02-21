@@ -2,7 +2,6 @@ file_paths:
   signals: data/input/epigenomic_feature/signals_1kb.npy
   hic_embedding: data/input/hic_embedding/hic_line_embedding_128.csv
   clusters: data/output/clusters.csv
-  output_bed: data/output/NEW.bed
 
 clustering:
   method: kmeans  # or hmm
@@ -28,7 +27,7 @@ optimizer:
   struc_lr: 1e-5
   func_head_lr: 1e-5
   struc_head_lr: 1e-5
-  weight_decay: 0.001
+  weight_decay: 1e-3
 
 training:
   max_epochs: 4

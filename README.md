@@ -15,7 +15,6 @@ git clone https://github.com/maruyama-lab-design/CDACHIE.git
 ```bash
 pip install -r requirements.txt
 ```
-**Note:** The requirements.txt file is still being prepared and will be added soon.
 
 ## Data
 We used data from the GM12878 cell line for our experiments.  
@@ -34,7 +33,7 @@ data
      └── clusters.csv
 ```
 
-### Epigenomic signal data
+### Epigenomic signal
 First, download the bigwig files (see instructions in `make_feature.ipynb`), then run the notebook to generate `signals_1kb.npy`.
 
 ### Hi-C embedding
