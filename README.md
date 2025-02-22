@@ -34,17 +34,25 @@ data
 ```
 
 ### Epigenomic signal
-First, download the bigwig files (see instructions in `make_feature.ipynb`), then run the notebook to generate `signals_1kb.npy`.
+Before running `cdachie.py`, you must process the epigenomic data:
+
+1. Download the required bigwig files (detailed instructions in `make_feature.ipynb`)
+2. Open and run `make_feature.ipynb` in Jupyter Notebook to generate `signals_1kb.npy`
+   - This preprocessing step is mandatory
+   - The notebook will guide you through converting bigwig files into the required numpy format
 
 ### Hi-C embedding
 The Hi-C embedding data file (hic_line_embedding_128.csv) was created using the code from: https://github.com/nedashokraneh/IChDA/blob/master/src/dataset_class.py
 
 ## Contrastive Learning & Clustering
-Hyperparameters are specified in `config.yaml`, then run:
+Only proceed with this step after completing the data preprocessing steps above.
+
+1. Configure your parameters in `config.yaml`
+2. Run the main analysis:
 ```bash
 python cdachie.py
 ```
-The annotation results is saved to `data/output/clusters.csv`.
+3. The annotation results will be saved to `data/output/clusters.csv`
 
 ## Usage
 To use CDACHIE for your own data:
