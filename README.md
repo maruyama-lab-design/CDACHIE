@@ -48,7 +48,7 @@ The Hi-C embedding data file (hic_line_embedding_128.csv) was created using the 
 Only proceed with this step after completing the data preprocessing steps above.
 
 1. Configure your parameters in `config.yaml`
-2. Run the main analysis:
+2. Run the script:
 ```bash
 python cdachie.py
 ```
