@@ -34,12 +34,7 @@ data
 ```
 
 ### Epigenomic signal
-Before running `cdachie.py`, you must process the epigenomic data:
-
-1. Download the required bigwig files (detailed instructions in `make_feature.ipynb`)
-2. Open and run `make_feature.ipynb` in Jupyter Notebook to generate `signals_1kb.npy`
-   - This preprocessing step is mandatory
-   - The notebook will guide you through converting bigwig files into the required numpy format
+Before executing the main script `cdachie.py`, bigwig files and their compiled file, signals_1kb.npy, supposed to be stored in the directory, data/epigenomic_feature, should be prepared with `make_feature.ipynb`.
 
 ### Hi-C embedding
 The Hi-C embedding data file (hic_line_embedding_128.csv) was created using the code from: https://github.com/nedashokraneh/IChDA/blob/master/src/dataset_class.py
